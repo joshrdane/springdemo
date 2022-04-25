@@ -1,4 +1,4 @@
-package us.jdane.springdemo.customer;
+package us.jdane.springdemo.store.customer;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

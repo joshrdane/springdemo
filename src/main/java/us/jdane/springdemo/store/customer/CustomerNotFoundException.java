@@ -1,4 +1,4 @@
-package us.jdane.springdemo.customer;
+package us.jdane.springdemo.store.customer;
 
 public class CustomerNotFoundException extends RuntimeException {
 

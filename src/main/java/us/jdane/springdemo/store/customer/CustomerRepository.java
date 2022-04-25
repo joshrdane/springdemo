@@ -1,4 +1,4 @@
-package us.jdane.springdemo.customer;
+package us.jdane.springdemo.store.customer;
 
 import org.springframework.data.repository.CrudRepository;
 
