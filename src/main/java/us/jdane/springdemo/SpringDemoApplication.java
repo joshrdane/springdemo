@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import us.jdane.springdemo.store.customer.Customer;
 import us.jdane.springdemo.store.customer.CustomerRepository;
-import us.jdane.springdemo.store.invoice.InoviceRepository;
+import us.jdane.springdemo.store.invoice.InvoiceRepository;
 import us.jdane.springdemo.store.product.Product;
 import us.jdane.springdemo.store.product.ProductRepository;
 
@@ -23,7 +23,7 @@ public class SpringDemoApplication {
 
     @Bean
     public CommandLineRunner springOrderDemo(
-            InoviceRepository invoiceRepository,
+            InvoiceRepository invoiceRepository,
             CustomerRepository customerRepository,
             ProductRepository productRepository
     ) {

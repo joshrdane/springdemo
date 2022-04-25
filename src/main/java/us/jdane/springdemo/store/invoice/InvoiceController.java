@@ -6,9 +6,9 @@ import java.util.List;
 
 @RestController
 public class InvoiceController {
-    private final InoviceRepository repository;
+    private final InvoiceRepository repository;
 
-    InvoiceController(InoviceRepository repository) {
+    InvoiceController(InvoiceRepository repository) {
         this.repository = repository;
     }
 
