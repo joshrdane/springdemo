@@ -23,12 +23,12 @@ public class CustomerController {
         return repository.save(customer);
     }
 
-    @GetMapping("/customer/id/{id}")
+    @GetMapping("/customer/{id}")
     Customer getCustomerById(@PathVariable Long id) {
         return repository.findById(id).orElseThrow(() -> new CustomerNotFoundException(id));
     }
 
-    @PutMapping("customer/update/{id}")
+    @PutMapping("customer/{id}")
     Customer updateCustomer(
             @PathVariable Long id,
             @RequestParam(required = false) String firstName,
