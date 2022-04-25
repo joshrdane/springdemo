@@ -1,17 +1,26 @@
 package us.jdane.springdemo.store.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = Customer.SQL.table)
 public class Customer {
+    public static final class SQL {
+        public static final String table = "customer";
+        public static final String id = "id";
+        public static final String firstName = "first_name";
+        public static final String lastName = "last_name";
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = SQL.id)
     private Long id;
+
+    @Column(name = SQL.firstName)
     private String firstName;
+
+    @Column(name = SQL.lastName)
     private String lastName;
 
     protected Customer() {

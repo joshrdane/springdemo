@@ -6,16 +6,23 @@ import javax.persistence.*;
 
 @Entity
 
-@Table(name = "invoice_item")
+@Table(name = InvoiceItem.SQL.table)
 public class InvoiceItem {
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "iid", referencedColumnName = "id")
-    private Invoice invoice;
+    public static final class SQL {
+        public static final String table = "invoice_item";
+        public static final String id = "id";
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     @ManyToOne
-    @JoinColumn(name = "pid", referencedColumnName = "id")
+    @JoinColumn(name = "invoice_id", referencedColumnName = Invoice.SQL.id)
+    private Invoice invoice;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = Product.SQL.id)
     private Product product;
 
     private int quantity;
