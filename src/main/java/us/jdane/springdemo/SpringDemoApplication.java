@@ -8,15 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import us.jdane.springdemo.store.customer.Customer;
 import us.jdane.springdemo.store.customer.CustomerRepository;
-import us.jdane.springdemo.store.invoice.Invoice;
-import us.jdane.springdemo.store.invoice.InvoiceItem;
 import us.jdane.springdemo.store.invoice.InvoiceItemRepository;
 import us.jdane.springdemo.store.invoice.InvoiceRepository;
 import us.jdane.springdemo.store.product.Product;
 import us.jdane.springdemo.store.product.ProductRepository;
-
-import java.util.HashMap;
-import java.util.List;
 
 @SpringBootApplication
 public class SpringDemoApplication {
@@ -41,9 +36,6 @@ public class SpringDemoApplication {
             customerRepository.save(new Customer("Jimothy", "Hendricks"));
             productRepository.save(new Product("Drill"));
             productRepository.save(new Product("Hammer"));
-            HashMap<Product, Integer> products = new HashMap<>();
-            products.put(productRepository.findById(1), 12);
-            invoiceRepository.save(new Invoice(invoiceItemRepository, customerRepository.findById(1), products));
         });
     }
 
