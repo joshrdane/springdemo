@@ -11,7 +11,7 @@ public class InvoiceItem {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL) // This may require CascadeType.MERGE
     private Product product;
 
     private int quantity;
