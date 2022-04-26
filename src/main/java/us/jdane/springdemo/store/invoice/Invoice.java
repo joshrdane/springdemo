@@ -8,24 +8,16 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = Invoice.SQL.table)
 public class Invoice {
-    public static final class SQL {
-        public static final String table = "invoice";
-        public static final String id = "id";
-    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = SQL.id)
+    @GeneratedValue
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "customer_id", referencedColumnName = Customer.SQL.id)
+    @ManyToOne
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    @OneToMany
     private List<InvoiceItem> items;
 
     protected Invoice() {

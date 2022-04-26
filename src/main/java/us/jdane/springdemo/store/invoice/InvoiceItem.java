@@ -5,20 +5,13 @@ import us.jdane.springdemo.store.product.Product;
 import javax.persistence.*;
 
 @Entity
-
-@Table(name = InvoiceItem.SQL.table)
 public class InvoiceItem {
-    public static final class SQL {
-        public static final String table = "invoice_item";
-        public static final String id = "id";
-    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id", referencedColumnName = Product.SQL.id)
+    @ManyToOne
     private Product product;
 
     private int quantity;
