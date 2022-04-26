@@ -17,23 +17,21 @@ public class InvoiceItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "invoice_id", referencedColumnName = Invoice.SQL.id)
-    private Invoice invoice;
-
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id", referencedColumnName = Product.SQL.id)
     private Product product;
 
     private int quantity;
 
-    protected InvoiceItem() {
-    }
+    protected InvoiceItem() {}
 
-    InvoiceItem(Invoice invoice, Product product, Integer quantity) {
-        this.invoice = invoice;
+    public InvoiceItem(Product product, Integer quantity) {
         this.product = product;
         this.quantity = quantity;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public Product getProduct() {
